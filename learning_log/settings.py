@@ -27,8 +27,10 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 SECRET_KEY = 'django-insecure-dx)gq7qt+&_^lwv*pj(23&54o2i1*kk)6yz_io=$z4mn@0u4ka'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+if os.environ.get('DEBUG') == 'TRUE':
+    DEBUG = True
+elif os.environ.get("DEBUG") == "FALSE":
+    DEBUG = False
 ALLOWED_HOSTS = []
 
 
