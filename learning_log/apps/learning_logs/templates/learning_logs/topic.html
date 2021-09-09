@@ -1,0 +1,31 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block page_header %}
+  <h3>{{ topic }}</h3>
+{% endblock page_header %}
+
+{% block content %}
+  {% if user == topic.owner or not user.is_authenticated %}
+    <p>
+      <a role="button" class="btn btn-outline-info btn-lg bg-info text-light d-block mx-auto"
+         href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
+    </p>
+  {% endif %}
+  {% for entry in entries %}
+    <div class="card mb-3">
+      <h4 class="card-header bg-dark text-light">
+      {{ entry.date_added|date:'M d, Y H:i' }}
+      {% if user == topic.owner or not user.is_authenticated %}
+        <small><a href="{% url 'learning_logs:edit_entry' entry.id %}" style="color:rgb(23,162,184)">Edit entry</a></small>
+       {% endif %}
+      </h4>
+      <div class="card-body">
+        {{ entry.text|linebreaks }}
+      </div>
+    </div>
+  {% empty %}
+    <p>There are no entries for this topic yet.</p>
+  {% endfor %}
+  </ul>
+
+{% endblock content %}
