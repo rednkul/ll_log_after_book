@@ -9,7 +9,7 @@
 <ul>
   {% for topic in topics %}
   <li><h3>
-    <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a><small>| {{ topic.date_added|date:'M d, Y H:i' }}</small>
+    <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>|<small> {{ topic.date_added|date:'M d, Y H:i' }}</small>
   </li></h3>
   {% empty %}
   <h3>{{ user }} didn't add any topics yet.</h3>
