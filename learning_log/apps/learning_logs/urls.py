@@ -18,5 +18,7 @@ urlpatterns = [
     # Страница для добавления новой записи
     path('new_entry/<int:topic_id>/', views.new_entry, name='new_entry'),
     path('edit_entry/<int:entry_id>/', views.edit_entry, name='edit_entry'),
+    # Страница с информацией о пользователе
+    path('user_page/<int:user_id>/', views.user_page, name='user_page'),
 ]
 

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
+from django.contrib.auth.models import User
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
 
@@ -87,3 +88,13 @@ def edit_entry(request, entry_id):
 
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
+
+
+@login_required
+def user_page(request, user_id):
+
+    user = get_object_or_404(User, id=user_id)
+    topics = Topic.objects.filter(owner=user)
+    context = {'topics': topics, 'user': user}
+    return render(request, 'learning_logs/user_page.html', context)
+
