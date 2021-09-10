@@ -27,11 +27,8 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 SECRET_KEY = 'django-insecure-dx)gq7qt+&_^lwv*pj(23&54o2i1*kk)6yz_io=$z4mn@0u4ka'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('DEBUG') == 'TRUE':
-    DEBUG = True
-elif os.environ.get("DEBUG") == "FALSE":
-    DEBUG = False
-ALLOWED_HOSTS = []
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -68,7 +65,7 @@ ROOT_URLCONF = 'learning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR/'learning_log', 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,7 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -145,4 +142,7 @@ LOGIN_URL = '/users/login/'
 # Настройки Heroku
 import django_heroku
 django_heroku.settings(locals())
-
+if os.environ.get('DEBUG') == 'TRUE':
+    DEBUG = True
+elif os.environ.get("DEBUG") == "FALSE":
+    DEBUG = False
