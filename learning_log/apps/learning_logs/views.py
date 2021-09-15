@@ -98,3 +98,6 @@ def user_page(request, user_id):
     context = {'topics': topics, 'user': user}
     return render(request, 'learning_logs/user_page.html', context)
 
+def xprm(request):
+
+    return render(request, 'learning_logs/xperiment.html')

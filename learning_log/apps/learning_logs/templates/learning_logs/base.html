@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,
       shrink-to-fit=no">
     <link rel="shortcut icon" type="imafe/png" href="{% static 'favicon.ico' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/learning_logs/base.css' %}" />
     <title>Learning Log</title>
 
     {% bootstrap_css %}
@@ -15,7 +16,7 @@
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 border">
 
-    <a style="color:rgb(23,162,184)" class="navbar-brand" href="{% url 'learning_logs:index'%}">Learning Log</a>
+    <a style="color:rgb(23,162,184)" class="navbar-brand hm_pg" href="{% url 'learning_logs:index'%}">Learning Log</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarCollapse" aria-controls="navbarCollapse"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'learning_logs:topics' %}">Topics</a>
+          <a class="nav-link hm_pg" href="{% url 'learning_logs:topics' %}">Topics</a>
         </li>
       </ul>
 

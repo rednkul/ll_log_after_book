@@ -1,0 +1,14 @@
+a:hover.hm_pg {
+color:red;
+text-decoration: none;
+}
+
+div.but {
+height: 70px;
+width: 120px;
+border:1px solid green;
+border-radius: 10px;
+background-color: orange;
+}
+p.but {
+text-align: justify}

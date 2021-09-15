@@ -1,21 +1,20 @@
 {% extends 'learning_logs/base.html' %}
 
 {% block page_header %}
-  <h3>
-    <div class="container">
-      {{ topic }}
-      {% if user == topic.owner or user.is_superuser %}
+<div class="d-block">
+  <h3>{{ topic }}</h3>
+  {% if user == topic.owner or user.is_superuser %}
+      <div class="btn-group btn-group-toggle col-md-4 offset-md-8" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" id="personal" autocomlete="off" checked>Personal</label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="public" autocomlete="off">Public</label>
+      </div>
 
-        <div class="btn-group btn-group-toggle col-md-5 offset-md-8" data-toggle="buttons">
-          <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="personal" autocomlete="off" checked>Personal</label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="public" autocomlete="off">Public</label>
-        </div>
+  {% endif %}
 
-      {% endif %}
-     </div>
-  </h3>
+
+</div>
 {% endblock page_header %}
 
 {% block content %}

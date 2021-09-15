@@ -20,5 +20,7 @@ urlpatterns = [
     path('edit_entry/<int:entry_id>/', views.edit_entry, name='edit_entry'),
     # Страница с информацией о пользователе
     path('user_page/<int:user_id>/', views.user_page, name='user_page'),
+    # СТраница пробников
+    path('xprm/', views.xprm, name='xprm')
 ]
 
